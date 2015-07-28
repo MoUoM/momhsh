@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ch" manifest="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>For You</title>
+<meta charset="utf-8">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragram" content="no-cache">
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/endpic.css">
+<script type="text/javascript" src="http://www.coding123.net/getip.ashx?js=1"></script>
+
+<script type="text/javascript">
+	window.onload = function() {
+		$.ajax({
+			type : 'POST',
+			url : 'load/load.action',
+			// data to be added to query string:
+			data : {
+				result : ip
+			},
+			// type of data we are expecting in return:
+			dataType : 'json',
+			success : function(data) {
+				// Supposing this JSON payload was received:
+				//   {"project": {"id": 42, "html": "<div>..." }}
+				// append the HTML to context object.
+				console.log(data);
+			}
+		});
+	}
+
+	window.onbeforeunload = function() {
+		$.ajax({
+			type : 'POST',
+			url : 'load/unload.action',
+			// data to be added to query string:
+			data : {
+				result : ip
+			},
+			// type of data we are expecting in return:
+			dataType : 'json',
+			success : function(data) {
+				// Supposing this JSON payload was received:
+				//   {"project": {"id": 42, "html": "<div>..." }}
+				// append the HTML to context object.
+				console.log(data);
+			}
+		});
+	}
+
+	var mengvalue = -1;
+	//if(mengvalue<0){mengvalue=0;}
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth / 640;
+
+	var ua = navigator.userAgent;
+	if (/Android (\d+\.\d+)/.test(ua)) {
+		var version = parseFloat(RegExp.$1);
+		// andriod 2.3
+		if (version > 2.3) {
+			document
+					.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+			// andriod 2.3以上
+		} else {
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+		// 其他系统
+	} else {
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+</script>
+
+<meta name="viewport"
+	content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+<!--移动端版本兼容 end -->
+</head>
+<body class="s-bg-ddd pc no-3d" style="-webkit-user-select: none;">
+	<!--模版加载提示-->
+
+	<section class="u-alert">
+		<img style="display: none;" src="images/loading_large.gif">
+		<div class="alert-loading z-move">
+			<div class="cycleWrap">
+				<span class="cycle cycle-1"></span> <span class="cycle cycle-2"></span><span
+					class="cycle cycle-3"></span><span class="cycle cycle-4"></span>
+			</div>
+
+			<div class="lineWrap">
+				<span class="line line-1"></span><span class="line line-2"></span><span
+					class="line line-3"></span>
+			</div>
+		</div>
+	</section>
+	<!--模版加载提示 end-->
+
+	<!-- 声音控件
+	<section class="u-audio" data-src="muusic/20150724zpw.mp3">
+		<p id="coffee_flow" class="btn_audio">
+			<strong class="txt_audio z-hide">Close</strong> <span class="css_sprite01 audio_open"></span>
+			<div id="song_img" class="" style="display: none;">Open Music</div>
+			<div class="coffee-steam-box"
+				style="height: 100px; width: 44px; left: 60px; top: -50px; position: absolute; overflow: hidden; z-index: 0;"></div>
+		</p>
+	</section> -->
+	<!-- 声音控件 end-->
+
+	<section class="u-arrow">
+		<p class="css_sprite01"></p>
+	</section>
+	<!-- 箭头指示引导 end-->
+	<!-- page页面内容 -->
+
+	<section class="p-ct transformNode-2d" style="height: 907px;">
+		<!-- 旋转反面 -->
+		<div class="translate-back" style="height: 907px;">
+			<!-- 擦一擦-->
+			<!-- 蒙板背景图-->
+			<!-- 大图文 3-->
+			<!-- 封页 1-->
+			<div class="m-page m-fengye" data-page-type="info_pic3"
+				data-statics="info_pic3" style="height: 907px;">
+				<div class="page-con lazy-finish" data-src="image/1.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/1.jpg); background-size: cover; height: 909px; background-position: 50% 50%;"></div>
+			</div>
+			<!-- 封页 end-->
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/2.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/2.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/3.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/3.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/4.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/4.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/5.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/5.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/6.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/6.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/7.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/7.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/8.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/8.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/9.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/9.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+			<div class="m-page m-bigTxt f-hide" data-page-type="bigTxt"
+				data-statics="info_list" style="height: 907px;">
+				<div class="page-con j-txtWrap lazy-finish" data-src="image/10.jpg"
+					data-position="50% 50%" data-size="cover"
+					style="background-image: url(image/10.jpg); background-size: cover; background-position: 50% 50%;"></div>
+			</div>
+		</div>
+		<!-- 旋转反面 end-->
+	</section>
+	<!-- 正文介绍 end--<!--pageLoading-->
+	<section class="u-pageLoading">
+		<img src="images/load.gif" alt="loading">
+	</section>
+	<!--pageLoading end-->
+	<!-- 资源传递 -->
+	<!-- 模版ID -->
+	<!-- 微信分享信息 -->
+	<!-- 微信分享信息 -->
+	<!-- 微信分享信息 -->
+	<!-- 资源传递 end-->
+	<!--脚本加载-->
+
+	<script src="js/Zepto.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/coffee.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/99_main.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
